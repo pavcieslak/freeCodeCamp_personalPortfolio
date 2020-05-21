@@ -1,0 +1,11 @@
+{
+  "name": "personalportfolio",
+  "version": "1.0.0",
+  "description": "Responsive Web Design Projects - Personal Portfolio Webpage",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pav Cieslak",
+  "license": "MIT"
+}
