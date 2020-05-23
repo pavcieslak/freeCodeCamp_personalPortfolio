@@ -14,6 +14,7 @@ $color00: greenyellow;
 $color01: lightgray;
 $color02: #333;
 $color03: lightsalmon;
+$color04: green;
 
 /* Colors
 =================================== */
@@ -21,6 +22,7 @@ $color03: lightsalmon;
 .c-01 {color: $color01;}
 .c-02 {color: $color02;}
 .c-03 {color: $color03;}
+.c-04 {color: $color04;}
 
 
 /* Imports 
@@ -52,14 +54,14 @@ p {letter-spacing: -.5px; text-transform: lowercase;}
   display: flex;
   background: $color00;
   justify-content: flex-end;
-  padding: 3rem;
+  padding: 3rem 3rem 3.5rem 3rem;
   z-index: 100;
   clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
   a {
     font-size: 2.6rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: normal;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
@@ -77,8 +79,30 @@ p {letter-spacing: -.5px; text-transform: lowercase;}
     position: absolute;
     left: 6rem;
     color: $color02;
+    filter: blur(5px);
     span {
       font-weight: 300;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    justify-content: center;
+    padding: 3rem 3rem 3.5rem 3rem;
+    a {
+      font-size: 2rem;
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+      }
+    }
+    .nav-logo {
+      position: relative;
+      left: 0;
+      color: $color02;
+      span {
+        font-weight: 300;
+      }
     }
   }
 }
@@ -87,16 +111,18 @@ p {letter-spacing: -.5px; text-transform: lowercase;}
 =================================== */
 #welcome-section {
   background: lightsalmon;
-  background: url('https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')no-repeat center center;
+  background: url('../assets/images/photo-1541462608143-67571c6738dd.jpg')no-repeat center top;
   background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 9.5rem;
   h1 {color: $color03;}
-  h1, p {background: rgba(255,255,255,1);}
+  // h1, p {background: rgba(255,255,255,1);}
+  h1, p {display: inline-block; background: #fff; padding: 1rem 2rem;}
 }
 
 /* Projects section
@@ -142,6 +168,17 @@ p {letter-spacing: -.5px; text-transform: lowercase;}
   top: -100px;
 }
 
+@media (max-width: 1200px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr!important;
+  }
+}
+@media (max-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr!important;
+  }
+}
+
 /* Contact section - Social
 =================================== */
 #contact {
@@ -173,6 +210,18 @@ p {letter-spacing: -.5px; text-transform: lowercase;}
   .social-link:hover a {border-bottom: 4px solid $color00;}
 }
 
+@media(max-width: 1200px) {
+  .social-list {
+    flex-direction: column;
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  #contact article {padding: 5rem 0;}
+}
+
 /* Footer
 =================================== */
 footer {
@@ -194,6 +243,19 @@ footer {
 .disclaimer {text-align: left;}
 .copyrights {text-align: right;}
 
+@media (max-width: 768px) {
+  footer p {
+    font-size: 1.4rem;
+  }
+  footer section {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  footer .disclaimer, footer .copyrights {
+    text-align: center;
+  }
+}
+
 /* Buttons
 =================================== */
 .btn {
@@ -204,9 +266,13 @@ footer {
   font-size: 2rem;
   border-radius: $radius;
   margin: 6rem 0;
+  filter: blur(5px);
   span i {
     font-size: 1.5rem;
     transition: .2s;
+  }
+  &:hover {
+    filter: blur(0);
   }
 }
 
@@ -238,10 +304,26 @@ h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, 
   p {font-size: calc(1.6rem*1.5);}
 }
 
+@media (max-width: 1400px) {
+  h1{font-size: calc(4.209rem*1.5);}
+  h2{font-size: calc(3.157rem*1.5);}
+  h3{font-size: calc(2.369rem*1.5);}
+  h4{font-size: calc(1.777rem*1.5);}
+  p {font-size: calc(1.6rem*1.5);}
+}
+
+@media (max-width: 1100px) {
+  h1{font-size: calc(4.209rem*1.25); line-height: 1.2;}
+  h2{font-size: calc(3.157rem*1.5); letter-spacing: 0px;}
+  h3{font-size: calc(2.369rem*1.5);}
+  h4{font-size: calc(1.777rem*1.5);}
+  p {font-size: calc(1.6rem*1.5);}
+}
+
 @media (max-width: 768px) {
-  h1{font-size: calc(4.209rem/1.6);}
-  h2{font-size: calc(3.157rem/1.4);}
+  h1{font-size: calc(4.209rem*1.2);}
+  h2{font-size: calc(3.157rem*1.2); letter-spacing: -1px; line-height: 1.2;}
   h3{font-size: calc(2.369rem/1.4);}
   h4{font-size: calc(1.777rem/1.4);}
-  p {font-size: calc(1.6rem/1.1);}
+  p {font-size: calc(2rem);}
 }

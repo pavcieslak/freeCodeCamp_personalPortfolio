@@ -26,6 +26,10 @@ website:   lucmedia.pl
   color: lightsalmon;
 }
 
+.c-04 {
+  color: green;
+}
+
 /* Imports 
 =================================== */
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -135,7 +139,7 @@ p {
   display: flex;
   background: greenyellow;
   justify-content: flex-end;
-  padding: 3rem;
+  padding: 3rem 3rem 3.5rem 3rem;
   z-index: 100;
   clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
 }
@@ -143,7 +147,7 @@ p {
   font-size: 2.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: normal;
   text-decoration: none;
   display: inline-block;
   transition: 0.2s;
@@ -161,21 +165,43 @@ p {
   position: absolute;
   left: 6rem;
   color: #333;
+  filter: blur(5px);
 }
 #navbar .nav-logo span {
   font-weight: 300;
 }
 
+@media (max-width: 768px) {
+  #navbar {
+    justify-content: center;
+    padding: 3rem 3rem 3.5rem 3rem;
+  }
+  #navbar a {
+    font-size: 2rem;
+  }
+  #navbar a:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+  #navbar .nav-logo {
+    position: relative;
+    left: 0;
+    color: #333;
+  }
+  #navbar .nav-logo span {
+    font-weight: 300;
+  }
+}
 /* Welcome section
 =================================== */
 #welcome-section {
   background: lightsalmon;
-  background: url("https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center;
+  background: url("../assets/images/photo-1541462608143-67571c6738dd.jpg") no-repeat center top;
   background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 9.5rem;
 }
@@ -183,7 +209,9 @@ p {
   color: lightsalmon;
 }
 #welcome-section h1, #welcome-section p {
-  background: white;
+  display: inline-block;
+  background: #fff;
+  padding: 1rem 2rem;
 }
 
 /* Projects section
@@ -243,6 +271,16 @@ p {
   top: -100px;
 }
 
+@media (max-width: 1200px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr !important;
+  }
+}
 /* Contact section - Social
 =================================== */
 #contact {
@@ -278,6 +316,18 @@ p {
   border-bottom: 4px solid greenyellow;
 }
 
+@media (max-width: 1200px) {
+  .social-list {
+    flex-direction: column;
+  }
+  .social-list li:not(:last-of-type) {
+    margin-bottom: 3rem;
+  }
+
+  #contact article {
+    padding: 5rem 0;
+  }
+}
 /* Footer
 =================================== */
 footer {
@@ -305,6 +355,20 @@ footer p {
   text-align: right;
 }
 
+@media (max-width: 768px) {
+  footer p {
+    font-size: 1.4rem;
+  }
+
+  footer section {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  footer .disclaimer, footer .copyrights {
+    text-align: center;
+  }
+}
 /* Buttons
 =================================== */
 .btn {
@@ -315,10 +379,14 @@ footer p {
   font-size: 2rem;
   border-radius: 30px;
   margin: 6rem 0;
+  filter: blur(5px);
 }
 .btn span i {
   font-size: 1.5rem;
   transition: 0.2s;
+}
+.btn:hover {
+  filter: blur(0);
 }
 
 .btn-default {
@@ -385,13 +453,59 @@ h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, 
     font-size: calc(1.6rem*1.5);
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   h1 {
-    font-size: calc(4.209rem/1.6);
+    font-size: calc(4.209rem*1.5);
   }
 
   h2 {
-    font-size: calc(3.157rem/1.4);
+    font-size: calc(3.157rem*1.5);
+  }
+
+  h3 {
+    font-size: calc(2.369rem*1.5);
+  }
+
+  h4 {
+    font-size: calc(1.777rem*1.5);
+  }
+
+  p {
+    font-size: calc(1.6rem*1.5);
+  }
+}
+@media (max-width: 1100px) {
+  h1 {
+    font-size: calc(4.209rem*1.25);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: calc(3.157rem*1.5);
+    letter-spacing: 0px;
+  }
+
+  h3 {
+    font-size: calc(2.369rem*1.5);
+  }
+
+  h4 {
+    font-size: calc(1.777rem*1.5);
+  }
+
+  p {
+    font-size: calc(1.6rem*1.5);
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: calc(4.209rem*1.2);
+  }
+
+  h2 {
+    font-size: calc(3.157rem*1.2);
+    letter-spacing: -1px;
+    line-height: 1.2;
   }
 
   h3 {
@@ -403,7 +517,7 @@ h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, 
   }
 
   p {
-    font-size: calc(1.6rem/1.1);
+    font-size: calc(2rem);
   }
 }
 
