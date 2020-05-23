@@ -1,0 +1,247 @@
+/* ===================================
+name:      FreeCodeCamp - Portfolio page
+version:   1.0.0
+date:      23/05/2020
+author:    Pav Cieslak
+email:     contact@lucmedia.pl
+website:   lucmedia.pl
+=================================== */
+
+/* Variables
+=================================== */
+$radius: 30px;
+$color00: greenyellow;
+$color01: lightgray;
+$color02: #333;
+$color03: lightsalmon;
+
+/* Colors
+=================================== */
+.c-00 {color: $color00;}
+.c-01 {color: $color01;}
+.c-02 {color: $color02;}
+.c-03 {color: $color03;}
+
+
+/* Imports 
+=================================== */
+@import 'reset';
+* {box-sizing: border-box; padding: 0; margin: 0;}
+
+/* Global
+=================================== */
+html {font-size: 10px; scroll-behavior: smooth;}
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+img {width: 100%; height: auto; vertical-align: middle;}
+section {padding: 6rem;}
+a {color: inherit; text-decoration: none;}
+.nobr {white-space: nowrap;}
+p {letter-spacing: -.5px; text-transform: lowercase;}
+
+/* Navbar
+=================================== */
+#navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  background: $color00;
+  justify-content: flex-end;
+  padding: 3rem;
+  z-index: 100;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+  a {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+    &:not(:last-of-type) {
+      margin-right: 6rem;
+    }
+    &.nav-link {
+      color: $color02;
+      &:hover {
+        color: $color03;
+      }
+    }
+  }
+  .nav-logo {
+    position: absolute;
+    left: 6rem;
+    color: $color02;
+    span {
+      font-weight: 300;
+    }
+  }
+}
+
+/* Welcome section
+=================================== */
+#welcome-section {
+  background: lightsalmon;
+  background: url('https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 9.5rem;
+  h1 {color: $color03;}
+  h1, p {background: rgba(255,255,255,1);}
+}
+
+/* Projects section
+=================================== */
+#projects {
+  text-align: center;
+  .project-list {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3rem;
+    grid-row-gap: 6rem;
+  }
+  h2 {
+    margin-bottom: 6rem;
+    color: $color02;
+  }
+  .project-tile {
+    border-radius: $radius;
+    overflow: hidden;
+    transition: .2s;
+    box-shadow: 1px 15px 20px -20px #999;
+    &:hover {
+      transform: scale(.98);
+    }
+  }
+  .project-tile p {
+    background: transparent;
+    color: $color02;
+    padding: 3rem 0;
+    &:before, &:after {visibility: hidden; opacity: 0; transition: .2s;}
+    &:before {content: '<'; color: $color00; padding-right: .5rem;}
+    &:after {content: '/>'; color: $color00; padding-left: .5rem;}
+  }
+  .project-tile:hover p:before, .project-tile:hover p:after {
+    visibility: visible; opacity: 1;
+  }
+}
+#pre-projects-scroll {
+  position: relative;
+  visibility: hidden;
+  top: -100px;
+}
+
+/* Contact section - Social
+=================================== */
+#contact {
+  background: $color02;
+  color: white; 
+  text-align: center;
+  article {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 15rem 0;
+  }
+  .social-list {
+    display: flex;
+    justify-content: space-around;
+    padding: 5rem 0;
+    li {
+      transition: .3s;
+      opacity: .4;
+      &:hover {
+        transform: translateY(9px);
+        opacity: 1;
+      }
+    }
+    li a {
+      font-size: 3rem;
+    }
+  }
+  .social-link a i.fas, .social-link a i.fab {color: #fff!important;}
+  .social-link:hover a {border-bottom: 4px solid $color00;}
+}
+
+/* Footer
+=================================== */
+footer {
+  background: $color02;
+  color: $color01;
+  section {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 1.5rem;
+    border-top: 1px solid $color01;
+  }
+  p {
+    font-size: 1.6rem;
+    letter-spacing: normal;
+  }
+}
+.disclaimer {text-align: left;}
+.copyrights {text-align: right;}
+
+/* Buttons
+=================================== */
+.btn {
+  color: #333;
+  font-weight: 500;
+  padding: 15px 35px;
+  display: inline-block;
+  font-size: 2rem;
+  border-radius: $radius;
+  margin: 6rem 0;
+  span i {
+    font-size: 1.5rem;
+    transition: .2s;
+  }
+}
+
+.btn-default {background: $color00;}
+
+.btn-chevron:hover span i {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+
+/* Typography
+=================================== */
+h1{font-size: 4.209rem; font-weight: 600; letter-spacing: -2px;}
+h2{font-size: 3.157rem; font-weight: 600; letter-spacing: -2px;}
+h3{font-size: 2.369rem; font-weight: 600; letter-spacing: -2px;}
+h4{font-size: 1.777rem; font-weight: 600; letter-spacing: -2px;}
+p {font-size: 1.6rem;}
+
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, p::-moz-selection {
+  background: $color00;
+}
+
+@media (min-width: 768px) {
+  h1{font-size: calc(4.209rem*2);}
+  h2{font-size: calc(3.157rem*1.5);}
+  h3{font-size: calc(2.369rem*1.5);}
+  h4{font-size: calc(1.777rem*1.5);}
+  p {font-size: calc(1.6rem*1.5);}
+}
+
+@media (max-width: 768px) {
+  h1{font-size: calc(4.209rem/1.6);}
+  h2{font-size: calc(3.157rem/1.4);}
+  h3{font-size: calc(2.369rem/1.4);}
+  h4{font-size: calc(1.777rem/1.4);}
+  p {font-size: calc(1.6rem/1.1);}
+}

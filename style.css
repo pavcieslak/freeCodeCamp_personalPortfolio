@@ -1,0 +1,410 @@
+/* ===================================
+name:      FreeCodeCamp - Portfolio page
+version:   1.0.0
+date:      23/05/2020
+author:    Pav Cieslak
+email:     contact@lucmedia.pl
+website:   lucmedia.pl
+=================================== */
+/* Variables
+=================================== */
+/* Colors
+=================================== */
+.c-00 {
+  color: greenyellow;
+}
+
+.c-01 {
+  color: lightgray;
+}
+
+.c-02 {
+  color: #333;
+}
+
+.c-03 {
+  color: lightsalmon;
+}
+
+/* Imports 
+=================================== */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Global
+=================================== */
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+section {
+  padding: 6rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+p {
+  letter-spacing: -0.5px;
+  text-transform: lowercase;
+}
+
+/* Navbar
+=================================== */
+#navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  background: greenyellow;
+  justify-content: flex-end;
+  padding: 3rem;
+  z-index: 100;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+}
+#navbar a {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s;
+}
+#navbar a:not(:last-of-type) {
+  margin-right: 6rem;
+}
+#navbar a.nav-link {
+  color: #333;
+}
+#navbar a.nav-link:hover {
+  color: lightsalmon;
+}
+#navbar .nav-logo {
+  position: absolute;
+  left: 6rem;
+  color: #333;
+}
+#navbar .nav-logo span {
+  font-weight: 300;
+}
+
+/* Welcome section
+=================================== */
+#welcome-section {
+  background: lightsalmon;
+  background: url("https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 9.5rem;
+}
+#welcome-section h1 {
+  color: lightsalmon;
+}
+#welcome-section h1, #welcome-section p {
+  background: white;
+}
+
+/* Projects section
+=================================== */
+#projects {
+  text-align: center;
+}
+#projects .project-list {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 6rem;
+}
+#projects h2 {
+  margin-bottom: 6rem;
+  color: #333;
+}
+#projects .project-tile {
+  border-radius: 30px;
+  overflow: hidden;
+  transition: 0.2s;
+  box-shadow: 1px 15px 20px -20px #999;
+}
+#projects .project-tile:hover {
+  transform: scale(0.98);
+}
+#projects .project-tile p {
+  background: transparent;
+  color: #333;
+  padding: 3rem 0;
+}
+#projects .project-tile p:before, #projects .project-tile p:after {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+#projects .project-tile p:before {
+  content: "<";
+  color: greenyellow;
+  padding-right: 0.5rem;
+}
+#projects .project-tile p:after {
+  content: "/>";
+  color: greenyellow;
+  padding-left: 0.5rem;
+}
+#projects .project-tile:hover p:before, #projects .project-tile:hover p:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+#pre-projects-scroll {
+  position: relative;
+  visibility: hidden;
+  top: -100px;
+}
+
+/* Contact section - Social
+=================================== */
+#contact {
+  background: #333;
+  color: white;
+  text-align: center;
+}
+#contact article {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 15rem 0;
+}
+#contact .social-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 0;
+}
+#contact .social-list li {
+  transition: 0.3s;
+  opacity: 0.4;
+}
+#contact .social-list li:hover {
+  transform: translateY(9px);
+  opacity: 1;
+}
+#contact .social-list li a {
+  font-size: 3rem;
+}
+#contact .social-link a i.fas, #contact .social-link a i.fab {
+  color: #fff !important;
+}
+#contact .social-link:hover a {
+  border-bottom: 4px solid greenyellow;
+}
+
+/* Footer
+=================================== */
+footer {
+  background: #333;
+  color: lightgray;
+}
+footer section {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 1.5rem;
+  border-top: 1px solid lightgray;
+}
+footer p {
+  font-size: 1.6rem;
+  letter-spacing: normal;
+}
+
+.disclaimer {
+  text-align: left;
+}
+
+.copyrights {
+  text-align: right;
+}
+
+/* Buttons
+=================================== */
+.btn {
+  color: #333;
+  font-weight: 500;
+  padding: 15px 35px;
+  display: inline-block;
+  font-size: 2rem;
+  border-radius: 30px;
+  margin: 6rem 0;
+}
+.btn span i {
+  font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+.btn-default {
+  background: greenyellow;
+}
+
+.btn-chevron:hover span i {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/* Typography
+=================================== */
+h1 {
+  font-size: 4.209rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: 3.157rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+h3 {
+  font-size: 2.369rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+h4 {
+  font-size: 1.777rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, p::-moz-selection {
+  background: greenyellow;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: calc(4.209rem*2);
+  }
+
+  h2 {
+    font-size: calc(3.157rem*1.5);
+  }
+
+  h3 {
+    font-size: calc(2.369rem*1.5);
+  }
+
+  h4 {
+    font-size: calc(1.777rem*1.5);
+  }
+
+  p {
+    font-size: calc(1.6rem*1.5);
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: calc(4.209rem/1.6);
+  }
+
+  h2 {
+    font-size: calc(3.157rem/1.4);
+  }
+
+  h3 {
+    font-size: calc(2.369rem/1.4);
+  }
+
+  h4 {
+    font-size: calc(1.777rem/1.4);
+  }
+
+  p {
+    font-size: calc(1.6rem/1.1);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
